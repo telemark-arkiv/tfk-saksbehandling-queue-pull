@@ -25,12 +25,8 @@ function pullFromQueue (options, callback) {
     return callback(new Error('Missing required input: options.deleteFromQueueUrl'), null)
   }
 
-  if (!options.statusMessage) {
+  if (options.statusMessageUrl && !options.statusMessage) {
     return callback(new Error('Missing required input: options.statusMessage'), null)
-  }
-
-  if (!options.statusMessageUrl) {
-    return callback(new Error('Missing required input: options.statusMessageUrl'), null)
   }
 
   var fs = require('fs')
@@ -57,8 +53,12 @@ function pullFromQueue (options, callback) {
     if (error) {
       return callback(error, null)
     } else {
-      wreckOptions.payload = JSON.stringify({status: options.statusMessage})
-      Wreck.post(options.statusMessageUrl + job._id, wreckOptions, handleStatusUpdates)
+      if (options.statusMessageUrl) {
+        wreckOptions.payload = JSON.stringify({status: options.statusMessage})
+        Wreck.post(options.statusMessageUrl + job._id, wreckOptions, handleStatusUpdates)
+      } else {
+        return callback(null, {message: 'Job ' + job._id + ' downloaded.'})
+      }
     }
   }
 
