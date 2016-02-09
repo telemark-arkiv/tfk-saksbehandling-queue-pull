@@ -32,8 +32,8 @@
   "license": "MIT",
   "devDependencies": {
     "coveralls": "^2.11.6",
-    "standard": "^6.0.3",
-    "tap": "^5.4.2"
+    "standard": "^6.0.4",
+    "tap": "^5.4.3"
   },
   "dependencies": {
     "jsonwebtoken": "^5.5.4",
