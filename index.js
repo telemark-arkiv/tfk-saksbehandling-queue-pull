@@ -55,7 +55,7 @@ function pullFromQueue (options, callback) {
     } else {
       if (options.statusMessageUrl) {
         wreckOptions.payload = JSON.stringify({status: options.statusMessage})
-        Wreck.post(options.statusMessageUrl + job._id, wreckOptions, handleStatusUpdates)
+        Wreck.post(options.statusMessageUrl + '/' + job._id, wreckOptions, handleStatusUpdates)
       } else {
         return callback(null, {message: 'Job ' + job._id + ' downloaded.'})
       }
@@ -66,7 +66,7 @@ function pullFromQueue (options, callback) {
     if (error) {
       return callback(error, null)
     } else {
-      Wreck.delete(options.deleteFromQueueUrl + job._id, wreckOptions, handleDelete)
+      Wreck.delete(options.deleteFromQueueUrl + '/' + job._id, wreckOptions, handleDelete)
     }
   }
 
@@ -76,7 +76,7 @@ function pullFromQueue (options, callback) {
     } else {
       if (payload && payload.length > 0) {
         job = payload[0]
-        fs.writeFile(options.jobFolderPath + job._id + '.json', JSON.stringify(job, null, 2), 'utf-8', handleWrite)
+        fs.writeFile(options.jobFolderPath + '/' + job._id + '.json', JSON.stringify(job, null, 2), 'utf-8', handleWrite)
       } else {
         return callback(null, {message: 'No job in queue'})
       }

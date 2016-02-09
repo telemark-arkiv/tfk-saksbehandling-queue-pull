@@ -6,11 +6,11 @@ var options = {
   payload: {
     system: 'tfk-saksbehandling-queue-pull'
   },
-  jobFolderPath: 'test/',
+  jobFolderPath: 'test/data/jobs',
   queueNextUrl: 'http://localhost:8000/api/queue/next',
-  deleteFromQueueUrl: 'http://localhost:8000/api/queue/',
+  deleteFromQueueUrl: 'http://localhost:8000/api/queue',
   statusMessage: 'Til behandling',
-  statusMessageUrl: 'http://localhost:8000/api/logs/'
+  statusMessageUrl: 'http://localhost:8000/api/logs'
 }
 
 pullFromQueue(options, function (error, data) {
