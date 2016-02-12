@@ -1,16 +1,17 @@
 'use strict'
 
 var pullFromQueue = require('./index')
+var config = require('./config')
 var options = {
-  key: 'NeverShareYourSecret',
+  key: config.JWT_KEY,
   payload: {
     system: 'tfk-saksbehandling-queue-pull'
   },
-  jobFolderPath: 'test/data/jobs',
-  queueNextUrl: 'http://localhost:8000/api/queue/next',
-  deleteFromQueueUrl: 'http://localhost:8000/api/queue',
-  statusMessage: 'Til behandling',
-  statusMessageUrl: 'http://localhost:8000/api/logs'
+  jobFolderPath: config.JOB_DIRECTORY_PATH,
+  queueNextUrl: config.QUEUE_NEXT_URL,
+  deleteFromQueueUrl: config.QUEUE_DELETE_URL,
+  statusMessage: config.CALLBACK_STATUS_MESSAGE,
+  statusMessageUrl: config.CALLBACK_STATUS_URL
 }
 
 pullFromQueue(options, function (error, data) {
