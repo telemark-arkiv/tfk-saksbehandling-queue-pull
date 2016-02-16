@@ -27,6 +27,8 @@ $ npm run setup
 
 ## Usage
 
+
+
 ```javascript
 'use strict'
 
@@ -38,9 +40,8 @@ var options = {
   },
   jobFolderPath: 'jobs/',
   queueNextUrl: 'https://yoursystem.com/api/queue/next',
-  deleteFromQueueUrl: 'https://yoursystem.com/api/queue/',
-  statusMessage: 'Ready for next step',
-  statusMessageUrl: 'https://yoursystem.com/api/logs/'
+  deleteFromQueueUrl: 'https://yoursystem.com/api/queue',
+  statusMessage: 'Ready for next step'
 }
 
 pullFromQueue(options, function (error, data) {

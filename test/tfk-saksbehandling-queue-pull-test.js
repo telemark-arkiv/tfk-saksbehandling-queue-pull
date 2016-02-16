@@ -77,14 +77,13 @@ tap.test('it requires options.deleteFromQueueUrl to exist', function (test) {
   })
 })
 
-tap.test('it requires options.statusMessage to exist if options.statusMessageUrl exists', function (test) {
+tap.test('it requires options.statusMessage to exist', function (test) {
   var options = {
     key: true,
     payload: true,
     jobFolderPath: true,
     queueNextUrl: true,
     deleteFromQueueUrl: true,
-    statusMessageUrl: true,
     statusMessage: false
   }
   var expectedErrorMessage = 'Missing required input: options.statusMessage'
