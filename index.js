@@ -56,7 +56,7 @@ function pullFromQueue (options, callback) {
     } else {
       if (CALLBACK_STATUS_URL) {
         wreckOptions.payload = JSON.stringify({status: options.statusMessage})
-        Wreck.post(CALLBACK_STATUS_URL + '/' + job._id, wreckOptions, handleStatusUpdates)
+        Wreck.post(CALLBACK_STATUS_URL, wreckOptions, handleStatusUpdates)
       } else {
         return callback(null, {message: 'Job ' + job._id + ' downloaded.'})
       }
