@@ -10,8 +10,7 @@ var options = {
   jobFolderPath: config.JOB_DIRECTORY_PATH,
   queueNextUrl: config.QUEUE_NEXT_URL,
   deleteFromQueueUrl: config.QUEUE_DELETE_URL,
-  statusMessage: config.CALLBACK_STATUS_MESSAGE,
-  statusMessageUrl: config.CALLBACK_STATUS_URL
+  statusMessage: config.CALLBACK_STATUS_MESSAGE
 }
 
 pullFromQueue(options, function (error, data) {
