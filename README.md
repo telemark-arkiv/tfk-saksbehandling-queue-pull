@@ -76,7 +76,7 @@ $ docker build -t tfk-saksbehandling-queue-pull .
 ### Usage
 
 ```sh
-$ docker run --env-file=docker.env --volume=test/data/jobs:test/data/jobs --rm tfk-saksbehandling-queue-pull
+$ docker run --env-file=docker.env --volume=/test/data/jobs:/src/test/data/jobs --rm tfk-saksbehandling-queue-pull
 ```
 
 This will start a container. Download a job. Stop the container and remove it.
