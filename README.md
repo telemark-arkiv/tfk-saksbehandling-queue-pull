@@ -65,5 +65,21 @@ else
 { message: 'Job 56b79dc6139e6bf1069ae22d downloaded. Status updated.' }
 ```
 
+## Docker
+
+Build
+
+```sh
+$ docker build -t tfk-saksbehandling-queue-pull .
+```
+
+### Usage
+
+```sh
+$ docker run --env-file=docker.env --volume=test/data/jobs:test/data/jobs --rm tfk-saksbehandling-queue-pull
+```
+
+This will start a container. Download a job. Stop the container and remove it.
+
 ## License
 [MIT](LICENSE)

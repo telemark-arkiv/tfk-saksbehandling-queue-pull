@@ -36,6 +36,7 @@
     "tap": "^5.4.4"
   },
   "dependencies": {
+    "is-directory": "^0.3.0",
     "jsonwebtoken": "^5.5.4",
     "wreck": "^7.0.0"
   }

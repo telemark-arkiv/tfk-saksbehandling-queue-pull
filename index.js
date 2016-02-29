@@ -1,5 +1,7 @@
 'use strict'
 
+var isDirectory = require('is-directory')
+
 function pullFromQueue (options, callback) {
   if (!options) {
     return callback(new Error('Missing required input: options object'), null)
@@ -15,6 +17,10 @@ function pullFromQueue (options, callback) {
 
   if (!options.jobFolderPath) {
     return callback(new Error('Missing required input: options.jobFolderPath'), null)
+  }
+
+  if (!isDirectory.sync(options.jobFolderPath)) {
+    return callback(new Error('Invalid input: options.jobFolderPath is not a directory'), null)
   }
 
   if (!options.queueNextUrl) {
@@ -74,6 +80,8 @@ function pullFromQueue (options, callback) {
   function handleNext (error, response, payload) {
     if (error) {
       return callback(error, null)
+    }  else if (response.statusCode !== 200) {
+      return callback(new Error('Unexpected statuscode: ' + response.statusCode), null)
     } else {
       if (payload && payload.length > 0) {
         job = payload[0]
