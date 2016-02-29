@@ -80,7 +80,7 @@ function pullFromQueue (options, callback) {
   function handleNext (error, response, payload) {
     if (error) {
       return callback(error, null)
-    }  else if (response.statusCode !== 200) {
+    } else if (response.statusCode !== 200) {
       return callback(new Error('Unexpected statuscode: ' + response.statusCode), null)
     } else {
       if (payload && payload.length > 0) {
