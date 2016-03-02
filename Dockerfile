@@ -25,7 +25,7 @@ WORKDIR "/src"
 RUN npm install --production
 
 # Env variables
-ENV TFK_SQP_JWT_KEY "NeverShareYourSecret"
+ENV TFK_SQP_JWT_KEY NeverShareYourSecretNeverShareYourSecret
 ENV TFK_SQP_CALLBACK_STATUS_MESSAGE "Til behandling"
 ENV TFK_SQP_JOB_DIRECTORY_PATH test/data/jobs
 ENV TFK_SQP_QUEUE_NEXT_URL https://example.com/api/queue/next
