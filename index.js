@@ -91,8 +91,7 @@ function pullFromQueue (options, callback) {
         }
         fs.writeFile(options.jobFolderPath + '/' + job._id + '.json', JSON.stringify(job, null, 2), 'utf-8', handleWrite)
       } else {
-        console.log('No jobs in queue')
-        process.exit(0)
+        return callback(null, {message: 'No jobs in queue'})
       }
     }
   }
