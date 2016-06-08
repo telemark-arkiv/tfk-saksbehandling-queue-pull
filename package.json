@@ -1,7 +1,7 @@
 {
   "name": "tfk-saksbehandling-queue-pull",
   "description": "Pull next job from tfk saksbehandling queue",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "author": {
     "name": "Geir Gåsodden",
     "email": "geir.gasodden@pythonia.no",
@@ -31,13 +31,13 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^2.11.6",
-    "standard": "^6.0.5",
-    "tap": "^5.4.4"
+    "coveralls": "2.11.9",
+    "standard": "7.1.2",
+    "tap": "5.7.2"
   },
   "dependencies": {
-    "is-directory": "^0.3.0",
-    "jsonwebtoken": "^5.5.4",
-    "wreck": "^7.0.0"
+    "is-directory": "0.3.1",
+    "jsonwebtoken": "7.0.0",
+    "wreck": "8.0.0"
   }
 }
