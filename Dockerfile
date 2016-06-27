@@ -4,8 +4,8 @@
 #
 ###########################################################
 
-# Setting the base to nodejs 4.4.5
-FROM mhart/alpine-node:4.4.5
+# Setting the base to nodejs 4.4.6
+FROM mhart/alpine-node:4.4.6
 
 # Maintainer
 MAINTAINER Geir Gåsodden
@@ -25,7 +25,7 @@ WORKDIR "/src"
 RUN npm install --production
 
 # Env variables
-ENV TFK_SQP_JWT_KEY NeverShareYourSecretNeverShareYourSecret
+ENV TFK_SQP_JWT_KEY Louie Louie, oh no, I got to go. Louie Louie, oh no, I got to go
 ENV TFK_SQP_CALLBACK_STATUS_MESSAGE "Til behandling"
 ENV TFK_SQP_JOB_DIRECTORY_PATH test/data/jobs
 ENV TFK_SQP_QUEUE_NEXT_URL https://example.com/api/queue/next
