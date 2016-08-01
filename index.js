@@ -19,8 +19,16 @@ function pullFromQueue (options, callback) {
     return callback(new Error('Missing required input: options.jobFolderPath'), null)
   }
 
+  if (!options.copiesFolderPath) {
+    return callback(new Error('Missing required input: options.copiesFolderPath'), null)
+  }
+
   if (!isDirectory.sync(options.jobFolderPath)) {
     return callback(new Error('Invalid input: options.jobFolderPath is not a directory'), null)
+  }
+
+  if (!isDirectory.sync(options.copiesFolderPath)) {
+    return callback(new Error('Invalid input: options.copiesFolderPath is not a directory'), null)
   }
 
   if (!options.queueNextUrl) {
@@ -77,6 +85,14 @@ function pullFromQueue (options, callback) {
     }
   }
 
+  function handleCopyWrite (error) {
+    if (error) {
+      return callback(error, null)
+    } else {
+      console.log('Copy written')
+    }
+  }
+
   function handleNext (error, response, payload) {
     if (error) {
       return callback(error, null)
@@ -89,6 +105,7 @@ function pullFromQueue (options, callback) {
           CALLBACK_STATUS_URL = job.CALLBACK_STATUS_URL + '/' + job._id
           job.CALLBACK_STATUS_URL = CALLBACK_STATUS_URL
         }
+        fs.writeFile(options.copiesFolderPath + '/' + job._id + '.json', JSON.stringify(job, null, 2), 'utf-8', handleCopyWrite)
         fs.writeFile(options.jobFolderPath + '/' + job._id + '.json', JSON.stringify(job, null, 2), 'utf-8', handleWrite)
       } else {
         return callback(null, {message: 'No jobs in queue'})

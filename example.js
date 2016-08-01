@@ -8,6 +8,7 @@ var options = {
     system: 'tfk-saksbehandling-queue-pull'
   },
   jobFolderPath: config.JOB_DIRECTORY_PATH,
+  copiesFolderPath: config.COPIES_DIRECTORY_PATH,
   queueNextUrl: config.QUEUE_NEXT_URL,
   deleteFromQueueUrl: config.QUEUE_DELETE_URL,
   statusMessage: config.CALLBACK_STATUS_MESSAGE
