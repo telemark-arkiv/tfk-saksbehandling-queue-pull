@@ -27,8 +27,6 @@ $ npm run setup
 
 ## Usage
 
-
-
 ```javascript
 'use strict'
 
@@ -39,6 +37,7 @@ var options = {
     system: 'tfk-saksbehandling-queue-pull'
   },
   jobFolderPath: 'jobs/',
+  copiesFolderPath: 'copies/',
   queueNextUrl: 'https://yoursystem.com/api/queue/next',
   deleteFromQueueUrl: 'https://yoursystem.com/api/queue',
   statusMessage: 'Ready for next step'
