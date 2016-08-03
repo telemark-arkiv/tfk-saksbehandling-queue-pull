@@ -39,6 +39,6 @@
   "dependencies": {
     "is-directory": "0.3.1",
     "jsonwebtoken": "7.1.7",
-    "wreck": "8.0.1"
+    "wreck": "9.0.0"
   }
 }
