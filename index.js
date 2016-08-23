@@ -1,8 +1,8 @@
 'use strict'
 
-var isDirectory = require('is-directory')
+const isDirectory = require('is-directory')
 
-function pullFromQueue (options, callback) {
+module.exports = (options, callback) => {
   if (!options) {
     return callback(new Error('Missing required input: options object'), null)
   }
@@ -45,7 +45,7 @@ function pullFromQueue (options, callback) {
 
   var fs = require('fs')
   var Wreck = require('wreck')
-  var generateToken = require('./lib/generate-token')
+  var generateToken = require('tfk-generate-jwt')
   var token = generateToken({key: options.key, payload: options.payload})
   var wreckOptions = {
     json: true,
@@ -115,5 +115,3 @@ function pullFromQueue (options, callback) {
 
   Wreck.get(options.queueNextUrl, wreckOptions, handleNext)
 }
-
-module.exports = pullFromQueue
