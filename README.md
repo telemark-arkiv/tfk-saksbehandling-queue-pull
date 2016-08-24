@@ -3,6 +3,8 @@
 # tfk-saksbehandling-queue-pull
 Pulls next job from the saksbehandling queue and saves it as a .json-file in a directory of your choice.
 
+It will save a copy of the file as well.
+
 Sends statusupdate to the systemlog,
 
 ## Installation
