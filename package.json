@@ -34,7 +34,7 @@
     "coveralls": "2.11.11",
     "nsp": "2.6.1",
     "standard": "8.0.0",
-    "tap": "7.0.0"
+    "tap": "7.0.1"
   },
   "dependencies": {
     "is-directory": "0.3.1",
