@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/telemark/tfk-saksbehandling-queue-pull.svg?branch=master)](https://travis-ci.org/telemark/tfk-saksbehandling-queue-pull)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 # tfk-saksbehandling-queue-pull
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/tfk-saksbehandling-queue-pull.svg)](https://greenkeeper.io/)
 Pulls next job from the saksbehandling queue and saves it as a .json-file in a directory of your choice.
 
 It will save a copy of the file as well.
