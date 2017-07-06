@@ -1,8 +1,9 @@
 [![Build Status](https://travis-ci.org/telemark/tfk-saksbehandling-queue-pull.svg?branch=master)](https://travis-ci.org/telemark/tfk-saksbehandling-queue-pull)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/tfk-saksbehandling-queue-pull.svg)](https://greenkeeper.io/)
+
 # tfk-saksbehandling-queue-pull
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/tfk-saksbehandling-queue-pull.svg)](https://greenkeeper.io/)
 Pulls next job from the saksbehandling queue and saves it as a .json-file in a directory of your choice.
 
 It will save a copy of the file as well.
@@ -34,8 +35,8 @@ $ npm run setup
 ```javascript
 'use strict'
 
-var pullFromQueue = require('tfk-saksbehandling-queue-pull')
-var options = {
+const pullFromQueue = require('tfk-saksbehandling-queue-pull')
+const options = {
   key: 'NeverShareYourSecret',
   payload: {
     system: 'tfk-saksbehandling-queue-pull'
@@ -47,7 +48,7 @@ var options = {
   statusMessage: 'Ready for next step'
 }
 
-pullFromQueue(options, function (error, data) {
+pullFromQueue(options, (error, data) => {
   if (error) {
     console.error(error)
   } else {
@@ -85,4 +86,6 @@ $ docker run --env-file=docker.env --volume=/test/data/jobs:/src/test/data/jobs 
 This will start a container. Download a job. Stop the container and remove it.
 
 ## License
+
 [MIT](LICENSE)
+![Robohash image of tfk-saksbehandling-queue-pull](https://robots.kebabstudios.party/tfk-saksbehandling-queue-pulln.png "Robohash image of tfk-saksbehandling-queue-pull")

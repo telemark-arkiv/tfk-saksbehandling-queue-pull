@@ -43,18 +43,18 @@ module.exports = (options, callback) => {
     return callback(new Error('Missing required input: options.statusMessage'), null)
   }
 
-  var fs = require('fs')
-  var Wreck = require('wreck')
-  var generateToken = require('tfk-generate-jwt')
-  var token = generateToken({key: options.key, payload: options.payload})
-  var wreckOptions = {
+  const fs = require('fs')
+  const Wreck = require('wreck')
+  const generateToken = require('tfk-generate-jwt')
+  const token = generateToken({key: options.key, payload: options.payload})
+  let wreckOptions = {
     json: true,
     headers: {
       Authorization: token
     }
   }
-  var job
-  var CALLBACK_STATUS_URL
+  let job
+  let CALLBACK_STATUS_URL
 
   function handleStatusUpdates (error, response, payload) {
     if (error) {
