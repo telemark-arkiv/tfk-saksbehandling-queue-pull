@@ -1,7 +1,7 @@
 {
   "name": "tfk-saksbehandling-queue-pull",
   "description": "Pull next job from tfk saksbehandling queue",
-  "version": "5.0.24",
+  "version": "5.0.25",
   "author": {
     "name": "Geir Gåsodden",
     "email": "geir.gasodden@pythonia.no",
@@ -34,7 +34,7 @@
     "standard": "10.0.2",
     "coveralls": "2.13.1",
     "nsp": "2.6.3",
-    "tap": "10.7.0"
+    "tap": "10.5.0"
   },
   "dependencies": {
     "is-directory": "0.3.1",
