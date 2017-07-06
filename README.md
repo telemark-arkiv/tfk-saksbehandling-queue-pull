@@ -71,6 +71,22 @@ else
 
 ## Docker
 
+### Environment
+
+Update docker.env
+
+```
+NODE_ENV=production
+TFK_SQP_JWT_KEY=Louie Louie, oh no, I got to go. Louie Louie, oh no, I got to go
+TFK_SQP_CALLBACK_STATUS_MESSAGE=Pending
+TFK_SQP_JOB_DIRECTORY_PATH=test/data/jobs
+TFK_SQP_COPIES_DIRECTORY_PATH=test/data/copies
+TFK_SQP_QUEUE_NEXT_URL=https://example.com/api/queue/next
+TFK_SQP_QUEUE_DELETE_URL=https://example.com/api/queue
+```
+
+### Build
+
 Build
 
 ```sh

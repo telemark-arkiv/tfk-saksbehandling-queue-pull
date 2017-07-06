@@ -102,7 +102,6 @@ module.exports = (options, callback) => {
       if (payload && payload.length > 0) {
         job = payload[0]
         if (job.CALLBACK_STATUS_URL) {
-          CALLBACK_STATUS_URL = job.CALLBACK_STATUS_URL + '/' + job._id
           job.CALLBACK_STATUS_URL = CALLBACK_STATUS_URL
         }
         fs.writeFile(options.copiesFolderPath + '/' + job._id + '.json', JSON.stringify(job, null, 2), 'utf-8', handleCopyWrite)
