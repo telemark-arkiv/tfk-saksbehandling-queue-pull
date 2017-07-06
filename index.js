@@ -54,7 +54,6 @@ module.exports = (options, callback) => {
     }
   }
   let job
-  let CALLBACK_STATUS_URL
 
   function handleStatusUpdates (error, response, payload) {
     if (error) {
@@ -68,9 +67,9 @@ module.exports = (options, callback) => {
     if (error) {
       return callback(error, null)
     } else {
-      if (CALLBACK_STATUS_URL) {
+      if (job.CALLBACK_STATUS_URL) {
         wreckOptions.payload = JSON.stringify({status: options.statusMessage})
-        Wreck.post(CALLBACK_STATUS_URL, wreckOptions, handleStatusUpdates)
+        Wreck.post(job.CALLBACK_STATUS_URL, wreckOptions, handleStatusUpdates)
       } else {
         return callback(null, {message: 'Job ' + job._id + ' downloaded.'})
       }
@@ -101,9 +100,6 @@ module.exports = (options, callback) => {
     } else {
       if (payload && payload.length > 0) {
         job = payload[0]
-        if (job.CALLBACK_STATUS_URL) {
-          job.CALLBACK_STATUS_URL = CALLBACK_STATUS_URL
-        }
         fs.writeFile(options.copiesFolderPath + '/' + job._id + '.json', JSON.stringify(job, null, 2), 'utf-8', handleCopyWrite)
         fs.writeFile(options.jobFolderPath + '/' + job._id + '.json', JSON.stringify(job, null, 2), 'utf-8', handleWrite)
       } else {
