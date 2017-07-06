@@ -1,8 +1,8 @@
 'use strict'
 
-var pullFromQueue = require('./index')
-var config = require('./config')
-var options = {
+const pullFromQueue = require('./index')
+const config = require('./config')
+const options = {
   key: config.JWT_KEY,
   payload: {
     system: 'tfk-saksbehandling-queue-pull'
@@ -14,7 +14,7 @@ var options = {
   statusMessage: config.CALLBACK_STATUS_MESSAGE
 }
 
-pullFromQueue(options, function (error, data) {
+pullFromQueue(options, (error, data) => {
   if (error) {
     console.error(error)
   } else {
