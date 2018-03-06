@@ -1,7 +1,7 @@
 {
   "name": "tfk-saksbehandling-queue-pull",
   "description": "Pull next job from tfk saksbehandling queue",
-  "version": "6.0.8",
+  "version": "6.0.9",
   "private": true,
   "author": {
     "name": "Geir Gåsodden",
